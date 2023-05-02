@@ -20,6 +20,7 @@ const ClassRequirement = (props) => {
             </li>
             ))}
         </ul>
+        <button onClick={props.handleClose}>Close</button>
     </div>
   )
 }

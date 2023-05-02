@@ -10,13 +10,19 @@ function App() {
   const [attributes, setAttributes] = useState(
     ATTRIBUTE_LIST.map(attribute => ({
       name: attribute,
-      value: 10
+      value: 10,
+      modifier: 0
     }))
   );
+
+  function calculateModifier(value){
+    return Math.floor((value - 10) / 2)
+   }
 
   const handleAttributeChange = (index, newValue) => {
     const updatedAttributes = [...attributes]
     updatedAttributes[index].value = newValue
+    updatedAttributes[index].modifier = calculateModifier(newValue)
     setAttributes(updatedAttributes)
   }
 //     useEffect(() => {   
@@ -31,6 +37,8 @@ function meetsRequirements(className) {
   }
   return true;
 }
+
+
 
   return (
     <div className="App">
@@ -47,6 +55,7 @@ function meetsRequirements(className) {
               <span>{attribute.value}</span>
               <button onClick={() => handleAttributeChange(index, attribute.value + 1)}>+</button>
               {/* {console.log(attribute)} */}
+              (Modifier: {attribute.modifier})
             </p>
           </div>
           ))}

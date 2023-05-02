@@ -12,6 +12,10 @@ const Classes = (props) => {
         setSelectedClass(className)
     }
 
+    const handleClose = () => {
+        setSelectedClass(null)
+      }
+
   return (
     <div>
         <h2>Classes</h2>
@@ -30,7 +34,7 @@ const Classes = (props) => {
           )
         })}
       </ul>
-      {selectedClass && <ClassRequirement classDetails={selectedClass}/>}
+      {selectedClass && <ClassRequirement classDetails={selectedClass} handleClose={handleClose}/>}
     </div>
   )
 }
