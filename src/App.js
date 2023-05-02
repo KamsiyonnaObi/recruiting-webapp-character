@@ -21,6 +21,17 @@ function App() {
   }
 //     useEffect(() => {   
 //  } , [attributes])
+
+function meetsRequirements(className) {
+  const classRequirements = CLASS_LIST[className]
+  for (const attribute in classRequirements) {
+    if (attributes.find(a => a.name === attribute).value < classRequirements[attribute]) {
+      return false;
+    }
+  }
+  return true;
+}
+
   return (
     <div className="App">
       <header className="App-header">
@@ -40,7 +51,7 @@ function App() {
           </div>
           ))}
         </div>
-        <Classes />
+        <Classes meetsRequirements = {meetsRequirements}/>
         <ClassRequirement />
         <Skills />
       </section>
