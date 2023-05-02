@@ -63,11 +63,44 @@ function findCharismaModifier() {
   }
   //console.log(attributes)
 
+  //function to send the character
+  function saveCharacter() {
+    fetch(
+      "https://recruiting.verylongdomaintotestwith.ca/api/{{KamsiyonnaObi}}/character",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(attributes),
+      }
+    )
+      .then((response) => {
+        console.log(response.data); //do whatever with response
+      })
+      .catch((error) => console.error(error)); //for catching any errors that come back
+
+    fetch(
+      "https://recruiting.verylongdomaintotestwith.ca/api/{{KamsiyonnaObi}}/character",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => {
+        console.log(response.data); //do whatever with response
+      })
+      .catch((error) => console.error(error)); //for catching any errors that come back
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>React Coding Exercise</h1>
       </header>
+      <button className="save_btn" onClick={() => saveCharacter()}> Save character </button>
       <section className="App-section">
         <div>
           <h2>Attributes</h2>

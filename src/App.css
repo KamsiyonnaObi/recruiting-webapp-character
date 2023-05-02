@@ -35,6 +35,10 @@
   color: white;
 }
 
+.save_btn {
+  font-size: 18px;
+}
+
 .App-link {
   color: #61dafb;
 }
