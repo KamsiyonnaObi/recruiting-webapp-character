@@ -2,6 +2,9 @@ import { useState } from 'react';
 import './App.css';
 import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from './consts.js';
 
+import Classes from "./components/Classes.js"
+import ClassRequirement from './components/ClassRequirement';
+import Skills from './components/Skills';
 
 function App() {
   const [attributes, setAttributes] = useState(
@@ -37,6 +40,9 @@ function App() {
           </div>
           ))}
         </div>
+        <Classes />
+        <ClassRequirement />
+        <Skills />
       </section>
     </div>
   );
