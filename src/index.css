@@ -24,3 +24,8 @@ code {
 .class_list{
   padding: 20px;
 }
+
+.skills_container > div > p{
+  display: flex;
+  align-items: flex-start;
+}

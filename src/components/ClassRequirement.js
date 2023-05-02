@@ -3,7 +3,7 @@ import { CLASS_LIST } from '../consts';
 
 const ClassRequirement = (props) => {
 
-    if (!props.classDetails) {
+    if (!props.classDetails) { //solution from Google
         return null;
     }
 

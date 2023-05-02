@@ -38,7 +38,30 @@ function meetsRequirements(className) {
   return true;
 }
 
+function findIntelligenceModifier() {
+  return attributes.find(a => a.name.toLowerCase() === 'intelligence').modifier
+  }
 
+function findStrengthModifier() {
+  return attributes.find(a => a.name.toLowerCase() === 'strength').modifier
+  }
+
+function findDexterityModifier() {
+  return attributes.find(a => a.name.toLowerCase() === 'dexterity').modifier
+  }
+
+function findConstitutionModifier() {
+  return attributes.find(a => a.name.toLowerCase() === 'constitution').modifier
+  }
+
+function findWisdomModifier() {
+  return attributes.find(a => a.name.toLowerCase() === 'wisdom').modifier
+  }
+
+function findCharismaModifier() {
+  return attributes.find(a => a.name.toLowerCase() === 'charisma').modifier
+  }
+  //console.log(attributes)
 
   return (
     <div className="App">
@@ -62,7 +85,14 @@ function meetsRequirements(className) {
         </div>
         <Classes meetsRequirements = {meetsRequirements}/>
         <ClassRequirement />
-        <Skills />
+        <Skills 
+          intelligenceModifier = {findIntelligenceModifier()}
+          strengthModifier = {findStrengthModifier()}
+          dexterityModifier = {findDexterityModifier()}
+          constitutionModifier = {findConstitutionModifier()}
+          wisdomModifier = {findWisdomModifier()}
+          charismaModifier = {findCharismaModifier()}
+        />
       </section>
     </div>
   );
