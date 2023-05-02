@@ -4,7 +4,20 @@ import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from './consts.js';
 
 
 function App() {
-  const [num, setNum] = useState(0);
+  const [attributes, setAttributes] = useState(
+    ATTRIBUTE_LIST.map(attribute => ({
+      name: attribute,
+      value: 10
+    }))
+  );
+
+  const handleAttributeChange = (index, newValue) => {
+    const updatedAttributes = [...attributes]
+    updatedAttributes[index].value = newValue
+    setAttributes(updatedAttributes)
+  }
+//     useEffect(() => {   
+//  } , [attributes])
   return (
     <div className="App">
       <header className="App-header">
@@ -12,10 +25,17 @@ function App() {
       </header>
       <section className="App-section">
         <div>
-          Value:
-          {num}
-          <button>+</button>
-          <button>-</button>
+          <h2>Attributes</h2>
+          {attributes.map((attribute, index) => (
+          <div key={index}>
+            <p>{attribute.name}
+              <button onClick={() => handleAttributeChange(index, attribute.value - 1)}>-</button>
+              <span>{attribute.value}</span>
+              <button onClick={() => handleAttributeChange(index, attribute.value + 1)}>+</button>
+              {/* {console.log(attribute)} */}
+            </p>
+          </div>
+          ))}
         </div>
       </section>
     </div>
